@@ -1,4 +1,4 @@
-#Trinamic Stepper Motor Book
+# Trinamic Stepper Motor Book
 
 Stepper Motor Basics Video: https://youtu.be/gt09CDu2K_c
 
