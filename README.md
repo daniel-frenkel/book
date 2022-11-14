@@ -9,8 +9,8 @@
 
 ## Libraries
 
-1. https://github.com/me-no-dev/ESPAsyncWebServer
-2. https://github.com/me-no-dev/AsyncTCP
+1. https://github.com/me-no-dev/ESPAsyncWebServer/archive/master.zip
+3. https://github.com/me-no-dev/AsyncTCP/archive/master.zip
 
 ## Required Hardware:
 
