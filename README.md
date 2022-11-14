@@ -2,15 +2,15 @@
 
 ## Guides
 
-1.Stepper Motor Basics Video: https://youtu.be/gt09CDu2K_c
+1. Stepper Motor Basics Video: https://youtu.be/gt09CDu2K_c
 2. Stepper Motor Basics Quick Read: https://stepcontrol.com/pdf/step101.pdf
 3. How to install the ESP32 board in Arduino: https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/
 4. FastAccelStepper: https://github.com/gin66/FastAccelStepper
 
 ## Libraries
 
-5. https://github.com/me-no-dev/ESPAsyncWebServer
-6. https://github.com/me-no-dev/AsyncTCP
+1. https://github.com/me-no-dev/ESPAsyncWebServer
+2. https://github.com/me-no-dev/AsyncTCP
 
 ## Required Hardware:
 
