@@ -11,8 +11,8 @@ FastAccelStepper: https://github.com/gin66/FastAccelStepper
 
 ## Libraries
 
-https://github.com/me-no-dev/ESPAsyncWebServer
-https://github.com/me-no-dev/AsyncTCP
+1. https://github.com/me-no-dev/ESPAsyncWebServer
+2. https://github.com/me-no-dev/AsyncTCP
 
 ## Required Hardware:
 
