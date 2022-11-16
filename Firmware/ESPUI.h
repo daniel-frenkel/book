@@ -1,4 +1,3 @@
-
 uint16_t openLabel;
 uint16_t closeLabel;
 uint16_t labelWifi;
@@ -58,11 +57,10 @@ void sliderPosition(Control* sender, int type)
   Serial.println(sender->value);
   move_to_percent = sender->value.toInt();
   move_to_step = (max_steps / 100) * move_to_percent;
-  if (run_motor == true){
-  stepper->moveTo(move_to_step);
+  if (run_motor == true) {
+    stepper->moveTo(move_to_step);
   }
   run_motor = true;
-
 }
 
 void buttonSetZeroCall(Control* sender, int type)
@@ -101,20 +99,14 @@ void switchChangeDirectionCall(Control* sender, int value)
   Serial.println(sender->id);
 }
 
-
-
 void textNetworkCall(Control* sender, int type)
 {
-  //    ssid = sender->value;
-  //    Serial.print(ssid);
-
+  // DO NOTHING
 }
 
 void textPasswordCall(Control* sender, int type)
 {
-  //    Serial.print(sender->value);
-  //    pass = sender->value;
-  //    Serial.print(pass);
+  // DO NOTHING
 }
 
 void buttonSaveNetworkCall(Control* sender, int type)

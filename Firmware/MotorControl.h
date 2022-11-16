@@ -1,8 +1,4 @@
-//Uncomment this if using the additional Capacitive Buttons
-//#define CAP_BUTTONS
-
 uint16_t positionLabel;
-
 #include "soc/timer_group_struct.h"
 #include "soc/timer_group_reg.h"
 
@@ -43,42 +39,9 @@ FastAccelStepperEngine engine = FastAccelStepperEngine();
 FastAccelStepper *stepper = NULL;
 TMC2209Stepper driver(&SERIAL_PORT_2, R_SENSE , DRIVER_ADDRESS);
 
-
-void IRAM_ATTR button1pressed()
-{
-  #ifdef CAP_BUTTONS
-  btn1Press = 1; //
-  #else
-  move_to_step = 0; //
-  run_motor = true; //
-  #endif
-}
-
-void IRAM_ATTR button2pressed()
-{
-  #ifdef CAP_BUTTONS
-  btn2Press = 1;
-  #else
-  move_to_step = max_steps;
-  run_motor = true;
-  #endif
-  
-}
-
 void IRAM_ATTR stalled_position()
 {
   stalled_motor = true;
-  stop_motor = true;
-}
-
-void IRAM_ATTR sensor_short()
-{
-  sensor2_trip = true;
-}
-
-void IRAM_ATTR sensor_long()
-{
-  sensor1_trip = true;
 }
 
 void IRAM_ATTR wifi_button_press()
@@ -93,7 +56,7 @@ void setZero()
   Serial.print("current_position: ");
   Serial.println(current_position);
   ESPUI.updateLabel(positionLabel, String(current_position));
-  
+
 }
 
 void move_motor() {
@@ -106,8 +69,6 @@ void move_motor() {
   stepper->setCurrentPosition(current_position);
 
   stalled_motor = false;
-  sensor1_trip = false;
-  sensor2_trip = false;
 
   stepper->setAcceleration(accel);
   stepper->setSpeedInHz(max_speed);
@@ -154,14 +115,14 @@ void move_motor() {
         stepper->forceStop();
         break;
       }
-      
+
       vTaskDelay(1);
     }
   } else
   {
     Serial.println("DO NOTHING!");
   }
-  
+
   current_position = stepper->getCurrentPosition();
   printf("Motor Function Complete\n");
 }
@@ -174,16 +135,12 @@ void setup_motors() {
   pinMode(STEP_PIN, OUTPUT);
   pinMode(STALLGUARD , INPUT);
   pinMode(WIFI_PIN , INPUT);
-  pinMode(BUTTON1, INPUT);
-  pinMode(BUTTON2, INPUT);
-  pinMode(SENSOR1, INPUT);
-  pinMode(SENSOR2, INPUT);
   SERIAL_PORT_2.begin(115200);
 
   driver.begin(); // Start all the UART communications functions behind the scenes
   driver.toff(4); //For operation with StealthChop, this parameter is not used, but it is required to enable the motor. In case of operation with StealthChop only, any setting is OK
   driver.blank_time(24); //Recommended blank time select value
-  driver.I_scale_analog(false); // Disbaled to use the extrenal current sense resistors 
+  driver.I_scale_analog(false); // Disbaled to use the extrenal current sense resistors
   driver.internal_Rsense(false); // Use the external Current Sense Resistors. Do not use the internal resistor as it can't handle high current.
   driver.mstep_reg_select(true); //Microstep resolution selected by MSTEP register and NOT from the legacy pins.
   driver.rms_current(current); // Set the current in milliamps.
@@ -195,9 +152,9 @@ void setup_motors() {
 
   if (open_direction == 1)
   {
-    driver.shaft(true); // Set the shaft direction. 
+    driver.shaft(true); // Set the shaft direction.
   } else {
-    driver.shaft(false); // Set the shaft direction. 
+    driver.shaft(false); // Set the shaft direction.
   }
 
   driver.en_spreadCycle(false); // Disable SpreadCycle. We want StealthChop becuase it works with StallGuard.
@@ -212,24 +169,4 @@ void setup_motors() {
 
   attachInterrupt(STALLGUARD, stalled_position, RISING);
   attachInterrupt(WIFI_PIN, wifi_button_press, FALLING);
-  attachInterrupt(BUTTON1, button1pressed, FALLING);
-  attachInterrupt(BUTTON2, button2pressed, FALLING);
-  attachInterrupt(SENSOR1, sensor_long, FALLING);
-  attachInterrupt(SENSOR2, sensor_short, FALLING);
-
-}
-
-void setup_leds() {
-
-  ledcAttachPin(LED1, 1); // assign a led pins to a channel
-  ledcAttachPin(LED2, 0); // assign a led pins to a channel
-
-  ledcSetup(0, 5000, 8); // 12 kHz PWM, 8-bit resolution
-  ledcSetup(1, 5000, 8); // 12 kHz PWM, 8-bit resolution
-
-  pinMode(LED1, OUTPUT);
-  pinMode(LED2, OUTPUT);
-
-  ledcWrite(0, 0); // turn off LED
-  ledcWrite(1, 0); // turn off LED
 }

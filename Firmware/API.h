@@ -4,7 +4,6 @@
 #include "AsyncJson.h"
 #include "ArduinoJson.h"
 
-
 String ip_address;
 String hostname = "VAL-2000";
 
@@ -30,7 +29,6 @@ void connectWifi() {
       wifi_button = false;
     }
   }
-
   Serial.println(WiFi.localIP());
   ip_address = WiFi.localIP().toString();
 }
@@ -62,7 +60,6 @@ void API()
     connectWifi();
   }
 
-
   serverAPI.on("/position", HTTP_GET, [](AsyncWebServerRequest * request) {
 
     int paramsNr = request->params();
@@ -83,7 +80,6 @@ void API()
     }
     request->send(200, "text/html", "Great Success");
   });
-
 
   serverAPI.on("/settings", HTTP_GET, [](AsyncWebServerRequest * request) {
 
