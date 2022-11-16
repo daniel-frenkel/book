@@ -10,6 +10,8 @@
 6. TMCStepper Class Reference: https://teemuatlut.github.io/TMCStepper/class_t_m_c2209_stepper.html
 7. How StallGuard works: https://www.trinamic.com/technology/motor-control-technology/stallguard-and-coolstep
 
+ESP32 MCPWM Module: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/mcpwm.html
+ESP32 PCNT Module: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/pcnt.html
 
 ## Libraries
 
