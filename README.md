@@ -8,6 +8,7 @@
 4. FastAccelStepper: https://github.com/gin66/FastAccelStepper
 5. Preferences library: https://randomnerdtutorials.com/esp32-save-data-permanently-preferences/
 6. TMCStepper Class Reference: https://teemuatlut.github.io/TMCStepper/class_t_m_c2209_stepper.html
+7. How StallGuard works: https://www.trinamic.com/technology/motor-control-technology/stallguard-and-coolstep
 
 
 ## Libraries
