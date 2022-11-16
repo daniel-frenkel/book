@@ -5,35 +5,18 @@ uint16_t positionLabel;
 #define STEP_PIN  15
 #define DIR_PIN  14
 #define ENABLE_PIN 27
-#define BUTTON1 23
-#define BUTTON2 34
 #define RXD2 16
 #define TXD2 17
 #define STALLGUARD 2
-#define SENSOR1 32
-#define SENSOR2 22
-#define LED1 33
-#define LED2 18
-
 #define SERIAL_PORT_2    Serial2    // TMC2208/TMC2224 HardwareSerial port
+#define R_SENSE          0.10f      // R_SENSE for current calc.
 #define DRIVER_ADDRESS   0b00       // TMC2209 Driver address according to MS1 and MS2
-#define R_SENSE          0.10f      // R_SENSE for current calc.  
-
-int brightness0 = 0;    // how bright the LED is
-int brightness1 = 0;    // how bright the LED is
-int fade0Amount = 15;    // how many points to fade the LED by
-int fade1Amount = 15;
 
 int button1Timer;
 int button2Timer;
 int waitButton1Timer;
 int waitButton2Timer;
 bool motorRunning;
-
-int btn1Press;
-int btn2Press;
-
-int allowButtonTime;
 
 FastAccelStepperEngine engine = FastAccelStepperEngine();
 FastAccelStepper *stepper = NULL;
