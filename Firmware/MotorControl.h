@@ -58,10 +58,9 @@ void move_motor() {
   {
     Serial.println("ALREADY THERE!");
   }
-  else if (move_to_step > current_position) // Open
+  else
   {
-
-    Serial.println("Opening");
+    Serial.println("Moving");
     stepper->moveTo(move_to_step);
 
     while (stepper->getCurrentPosition() != stepper->targetPos())
@@ -76,31 +75,7 @@ void move_motor() {
 
       vTaskDelay(1);
     }
-  }
-
-  else if (move_to_step < current_position) //close
-  {
-
-    Serial.println("Closing");
-    stepper->moveTo(move_to_step);
-
-    while (stepper->getCurrentPosition() != stepper->targetPos())
-    {
-
-      if (stalled_motor == true) //we assume it's in the center
-      {
-        printf("Stalled\n");
-        stepper->forceStop();
-        break;
-      }
-
-      vTaskDelay(1);
-    }
-  } else
-  {
-    Serial.println("DO NOTHING!");
-  }
-
+  } 
   current_position = stepper->getCurrentPosition();
   printf("Motor Function Complete\n");
 }
@@ -114,7 +89,6 @@ void setup_motors() {
   pinMode(STALLGUARD , INPUT);
   pinMode(WIFI_PIN , INPUT);
   SERIAL_PORT_2.begin(115200);
-
   driver.begin(); // Start all the UART communications functions behind the scenes
   driver.toff(4); //For operation with StealthChop, this parameter is not used, but it is required to enable the motor. In case of operation with StealthChop only, any setting is OK
   driver.blank_time(24); //Recommended blank time select value
