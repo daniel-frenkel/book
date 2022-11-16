@@ -1,4 +1,5 @@
 uint16_t positionLabel;
+bool motorRunning;
 #include "soc/timer_group_struct.h"
 #include "soc/timer_group_reg.h"
 
@@ -11,12 +12,6 @@ uint16_t positionLabel;
 #define SERIAL_PORT_2    Serial2    // TMC2208/TMC2224 HardwareSerial port
 #define R_SENSE          0.10f      // R_SENSE for current calc.
 #define DRIVER_ADDRESS   0b00       // TMC2209 Driver address according to MS1 and MS2
-
-int button1Timer;
-int button2Timer;
-int waitButton1Timer;
-int waitButton2Timer;
-bool motorRunning;
 
 FastAccelStepperEngine engine = FastAccelStepperEngine();
 FastAccelStepper *stepper = NULL;
