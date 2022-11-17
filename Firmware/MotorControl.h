@@ -1,7 +1,5 @@
 uint16_t positionLabel;
 bool motorRunning;
-#include "soc/timer_group_struct.h"
-#include "soc/timer_group_reg.h"
 
 #define STEP_PIN  15
 #define DIR_PIN  14
