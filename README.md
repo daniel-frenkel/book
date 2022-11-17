@@ -1,6 +1,6 @@
 # Trinamic Stepper Motor Book
 
-Below are links to different resources mentioned in the book. If something is broken, please email daniel@valarssystems.com or open an issue request above.
+Below are links to different resources mentioned in the book. If something is broken, please email daniel@valarsystems.com or open an issue request above.
 
 ### Required Hardware:
 1. [Espressif ESP32 DevKitC](https://amzn.to/3TArFGy)
