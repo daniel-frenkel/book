@@ -10,6 +10,7 @@ void setup()
   digitalWrite(enPin, LOW);
   digitalWrite(dirPin, HIGH);
 }
+
 void loop()
 {
     digitalWrite(stepPin, HIGH);
