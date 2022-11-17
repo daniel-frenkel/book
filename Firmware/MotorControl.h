@@ -12,7 +12,7 @@ bool motorRunning;
 #define DRIVER_ADDRESS   0b00       // TMC2209 Driver address according to MS1 and MS2
 
 FastAccelStepperEngine engine = FastAccelStepperEngine();
-FastAccelStepper *stepper = NULL;
+FastAccelStepper *stepper = NULL; 
 TMC2209Stepper driver(&SERIAL_PORT_2, R_SENSE , DRIVER_ADDRESS);
 
 void IRAM_ATTR stalled_position()
@@ -32,7 +32,6 @@ void setZero()
   Serial.print("current_position: ");
   Serial.println(current_position);
   ESPUI.updateLabel(positionLabel, String(current_position));
-
 }
 
 void move_motor() {

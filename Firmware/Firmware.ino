@@ -40,7 +40,7 @@ void loop()
 /*---------------------- Tasks ---------------------*/
 /*--------------------------------------------------*/
 
-void MotorTask(void *pvParameters)  // Motor Task
+void MotorTask()
 {
   (void) pvParameters;
   for (;;)
