@@ -1,5 +1,7 @@
 # Trinamic Stepper Motor Book
 
+This is the reference material for the "[Controlling Trinamic Stepper Motors](https://amzn.to/3AIea17)" Kindle Book.
+
 Below are links to different resources mentioned in the book. If something is broken, please email daniel@valarsystems.com or open an issue request above.
 
 ### Required Hardware:
