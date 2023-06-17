@@ -1,3 +1,7 @@
+#Updated 6/17/23
+
+New examples have been added that do not require the ESP32. The book has not been updated with these examples yet.
+
 # Trinamic Stepper Motor Book
 
 This is the reference material for the "[Controlling Trinamic Stepper Motors](https://amzn.to/3AIea17)" Kindle Book.
