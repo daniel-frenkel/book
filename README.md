@@ -1,4 +1,4 @@
-#Updated 6/17/23
+# Update: 6/17/23
 
 New examples have been added that do not require the ESP32. The book has not been updated with these examples yet.
 
