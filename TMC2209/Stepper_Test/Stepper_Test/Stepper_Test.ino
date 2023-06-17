@@ -1,6 +1,6 @@
-const int dirPin = 14;
-const int stepPin = 15;
-const int enPin = 27;
+const int dirPin = 53;
+const int stepPin = 52;
+const int enPin = 51;
 
 void setup()
 {
@@ -14,7 +14,7 @@ void setup()
 void loop()
 {
     digitalWrite(stepPin, HIGH);
-    delayMicroseconds(500);
+    delayMicroseconds(50);
     digitalWrite(stepPin, LOW);
-    delayMicroseconds(500);
+    delayMicroseconds(50);
 }
