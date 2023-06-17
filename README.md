@@ -1,6 +1,8 @@
 # Update: 6/17/23
 
-New examples have been added that do not require the ESP32. The book has not been updated with these examples yet.
+New examples have been added that do not require the ESP32. The book has not been updated with these examples yet. These examples remove dependencies on several libraries and make it easier to follow the example.
+
+A new TMC5160 example has also been added.
 
 # Trinamic Stepper Motor Book
 
