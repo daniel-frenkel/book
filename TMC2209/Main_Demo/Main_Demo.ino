@@ -62,7 +62,12 @@ void stalled_position()
 
 void setup() {
   Serial.begin(115200);
+  #if defined(ESP32)
+  SERIAL_PORT_2.begin(115200, SERIAL_8N1, RXD2, TXD2); // ESP32 can use any pins to Serial
+  #else
   SERIAL_PORT_2.begin(115200);
+  #endif
+  
   pinMode(ENABLE_PIN, OUTPUT);
   pinMode(STALLGUARD , INPUT);
   attachInterrupt(digitalPinToInterrupt(STALLGUARD), stalled_position, RISING);
