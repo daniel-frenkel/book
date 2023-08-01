@@ -40,9 +40,8 @@ void loop()
 /*---------------------- Tasks ---------------------*/
 /*--------------------------------------------------*/
 
-void MotorTask()
+void MotorTask(void * pvParameters)
 {
-  (void) pvParameters;
   for (;;)
   {
     if (run_motor == true)
